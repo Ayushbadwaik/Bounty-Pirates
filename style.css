@@ -1,119 +1,49 @@
 body{
-margin:0;
-font-family:Segoe UI;
-background:linear-gradient(270deg,#021024,#032859,#021024);
-background-size:600% 600%;
-animation:bgmove 20s ease infinite;
+font-family:Calibri, Arial;
+background:#0b1d3a;
 color:white;
-}
-
-@keyframes bgmove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.screen{min-height:100vh;}
-.center{display:flex;justify-content:center;align-items:center;}
-.hidden{display:none;}
-
-.title{
-font-size:48px;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px gold;}
-to{text-shadow:0 0 30px orange;}
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-padding:40px;
-border-radius:20px;
-text-align:center;
-}
-
-.btn{
-padding:12px 30px;
-border-radius:30px;
-border:none;
-font-size:18px;
-cursor:pointer;
-background:linear-gradient(45deg,#d4af37,#ffcc33);
-color:black;
-}
-
-.topbar{
-display:flex;
-justify-content:space-between;
-padding:15px 25px;
-background:rgba(0,0,0,0.6);
-}
-
-.timer-box{color:gold;font-size:20px;}
-
-.glass{
-margin:20px;
 padding:20px;
-border-radius:20px;
-background:rgba(255,255,255,0.08);
 }
 
 table{
 width:100%;
-border-collapse:separate;
-border-spacing:0 10px;
-margin-top:10px;
+border-collapse:collapse;
+background:white;
+color:black;
 }
 
 th{
-background:rgba(255,215,0,0.25);
-color:gold;
-padding:14px;
-font-size:18px;
-}
-
-tbody tr{
-background:rgba(0,0,0,0.4);
-transition:0.3s;
-}
-
-tbody tr:hover{
-transform:scale(1.02);
-background:rgba(255,255,255,0.1);
+background:#1b3b6f;
+color:white;
+padding:10px;
+border:1px solid black;
 }
 
 td{
-padding:12px;
+padding:10px;
+border:1px solid black;
 text-align:center;
 }
 
 td img{
-width:80px;
-border-radius:12px;
-border:2px solid gold;
-box-shadow:0 0 10px rgba(255,215,0,0.5);
+width:70px;
+border-radius:8px;
+border:1px solid black;
 }
 
-.result-box{
-text-align:center;
-font-size:18px;
+.resultBox{
+margin-top:30px;
+padding:15px;
+background:white;
+color:black;
+border:2px solid black;
+width:60%;
+margin-left:auto;
+margin-right:auto;
 }
 
 #winnerBox{
-font-size:32px;
-color:gold;
-animation:celebrate 1s infinite alternate;
-}
-
-@keyframes celebrate{
-from{transform:scale(1);}
-to{transform:scale(1.15);}
-}
-
-footer{
-text-align:center;
-padding:15px;
-opacity:0.8;
+color:green;
+font-size:26px;
+margin-top:10px;
 }
