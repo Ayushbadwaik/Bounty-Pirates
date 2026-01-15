@@ -1,0 +1,14 @@
+{
+  "adminPassword": "pirate123",
+  "countdown": 120,
+  "game": {
+    "teams": [
+      { "name": "Black Pearl", "players": ["A","B","C","D"] },
+      { "name": "Sea Wolves", "players": ["E","F","G","H"] }
+    ],
+    "round1": [],
+    "round2": [],
+    "round3": [],
+    "winner": ""
+  }
+}

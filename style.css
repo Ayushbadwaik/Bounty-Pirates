@@ -1,0 +1,51 @@
+body{
+margin:0;
+font-family:Trebuchet MS;
+background:url("assets/pirate-bg.jpg") center fixed no-repeat;
+background-size:cover;
+color:white;
+text-align:center;
+}
+
+.hidden{display:none;}
+
+.glow{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px gold;}
+to{text-shadow:0 0 30px red;}
+}
+
+button{
+padding:12px 25px;
+background:#8b0000;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+}
+
+#teams div{
+background:rgba(0,0,0,0.6);
+margin:10px;
+padding:10px;
+border-radius:10px;
+}
+
+#winnerBox{
+font-size:30px;
+color:gold;
+animation:celebrate 1s infinite alternate;
+}
+
+@keyframes celebrate{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+@media(max-width:768px){
+h1{font-size:24px;}
+}
