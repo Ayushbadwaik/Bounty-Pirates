@@ -1,72 +1,79 @@
 body{
-font-family:Calibri, Arial;
-background:linear-gradient(270deg,#021024,#032859,#021024);
+margin:0;
+font-family: "Trebuchet MS", Arial;
+background:linear-gradient(270deg,#020824,#021a3d,#020824);
 background-size:600% 600%;
-animation:bgmove 20s ease infinite;
+animation:bg 20s ease infinite;
 color:white;
-padding:20px;
 text-align:center;
 }
 
-@keyframes bgmove{
+@keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
-.screen{min-height:100vh;}
-.center{display:flex;justify-content:center;align-items:center;}
+.intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+}
+
+.intro h1{
+font-size:60px;
+color:gold;
+text-shadow:0 0 20px black;
+}
+
+.intro button{
+padding:15px 40px;
+font-size:20px;
+border-radius:30px;
+border:none;
+background:gold;
+cursor:pointer;
+font-weight:bold;
+}
+
 .hidden{display:none;}
 
-.card{
-background:rgba(0,0,0,0.6);
-padding:40px;
-border-radius:15px;
-}
-
-button{
-padding:12px 30px;
-font-size:18px;
-border-radius:20px;
-border:none;
-cursor:pointer;
-background:gold;
-}
-
-.title{color:gold;}
-
-.timerBox{
-margin:15px;
+.topbar{
+background:black;
+padding:12px;
 font-size:22px;
-background:rgba(0,0,0,0.5);
-padding:10px;
-border-radius:10px;
-display:inline-block;
+color:gold;
 }
 
 table{
-width:100%;
+width:90%;
+margin:auto;
 border-collapse:collapse;
 background:white;
 color:black;
-margin-top:15px;
-}
-
-th,td{
-border:1px solid black;
-padding:10px;
+margin-top:20px;
 }
 
 th{
 background:#1b3b6f;
 color:white;
+padding:12px;
+border:1px solid black;
+}
+
+td{
+padding:10px;
+border:1px solid black;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:15px;
-margin-top:15px;
+padding:20px;
 }
 
 .grid div{
@@ -81,19 +88,30 @@ width:100%;
 border-radius:8px;
 }
 
-.resultBox{
-margin-top:30px;
+.results{
 background:white;
 color:black;
-padding:20px;
-border-radius:10px;
 width:70%;
-margin-left:auto;
-margin-right:auto;
+margin:auto;
+padding:20px;
+border-radius:15px;
+font-size:18px;
 }
 
 #winnerBox{
 color:green;
-font-size:28px;
-margin-top:10px;
+font-size:30px;
+animation:pulse 1s infinite alternate;
+}
+
+@keyframes pulse{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+footer{
+margin-top:30px;
+padding:15px;
+font-size:14px;
+color:lightgray;
 }

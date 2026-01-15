@@ -2,29 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bounty Pirates Arena</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="startScreen" class="center screen">
-  <div class="card">
-    <h1>🏴‍☠️ BOUNTY PIRATES</h1>
-    <button onclick="startGame()">Start Game</button>
-  </div>
+<div id="intro" class="intro">
+  <h1>🏴‍☠️ BOUNTY PIRATES</h1>
+  <p>The Treasure Hunt Begins</p>
+  <button onclick="startGame()">Start Game</button>
 </div>
 
-<div id="mainScreen" class="hidden">
+<div id="main" class="hidden">
 
-<h2 class="title">Bounty Pirates Arena</h2>
-
-<div class="timerBox">
-⏳ Countdown: <span id="timer">--</span> sec
+<div class="topbar">
+  ⏳ Countdown: <span id="timer">--</span> sec
 </div>
 
-<!-- TEAM TABLE -->
-<h3>Teams & Pirates</h3>
+<h2>⚓ Pirate Crews</h2>
+
 <table id="teamsTable">
 <thead>
 <tr>
@@ -35,18 +32,20 @@
 <tbody></tbody>
 </table>
 
-<!-- PIRATE IMAGE GRID -->
-<h3>Pirate Crews</h3>
+<h2>🏴‍☠️ Crew Flags</h2>
 <div id="pirateGrid" class="grid"></div>
 
-<!-- RESULTS -->
-<div class="resultBox">
-<h3>🏴‍☠️ Results</h3>
-<p><b>Round 1:</b> <span id="r1">--</span></p>
-<p><b>Round 2:</b> <span id="r2">--</span></p>
-<p><b>Round 3:</b> <span id="r3">--</span></p>
-<h2 id="winnerBox"></h2>
+<h2>📜 Results Board</h2>
+<div class="results">
+<p>Round 1 Qualified: <span id="r1"></span></p>
+<p>Round 2 Qualified: <span id="r2"></span></p>
+<p>Round 3 Qualified: <span id="r3"></span></p>
+<h1 id="winnerBox"></h1>
 </div>
+
+<footer>
+Contact: Mr. Ayush Badwaik | 8208832911
+</footer>
 
 </div>
 
