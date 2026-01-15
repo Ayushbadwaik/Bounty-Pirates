@@ -4,11 +4,12 @@
   "game": {
     "teams": [
       {"name":"Black Pearl","players":["A","B","C","D"]},
-      {"name":"Sea Wolves","players":["E","F","G","H"]}
+      {"name":"Sea Wolves","players":["E","F","G","H"]},
+      {"name":"Red Skulls","players":["I","J","K","L"]}
     ],
-    "round1": [],
-    "round2": [],
-    "round3": [],
-    "winner": ""
+    "round1": ["Black Pearl","Sea Wolves"],
+    "round2": ["Black Pearl"],
+    "round3": ["Black Pearl"],
+    "winner": "Black Pearl"
   }
 }

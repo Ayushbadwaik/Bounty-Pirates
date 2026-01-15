@@ -62,25 +62,38 @@ background:rgba(255,255,255,0.08);
 
 table{
 width:100%;
-border-collapse:collapse;
+border-collapse:separate;
+border-spacing:0 10px;
+margin-top:10px;
 }
 
 th{
-background:rgba(255,215,0,0.2);
+background:rgba(255,215,0,0.25);
 color:gold;
-padding:12px;
+padding:14px;
+font-size:18px;
+}
+
+tbody tr{
+background:rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+tbody tr:hover{
+transform:scale(1.02);
+background:rgba(255,255,255,0.1);
 }
 
 td{
-padding:10px;
-border-bottom:1px solid rgba(255,255,255,0.2);
+padding:12px;
 text-align:center;
 }
 
 td img{
-width:70px;
-border-radius:10px;
+width:80px;
+border-radius:12px;
 border:2px solid gold;
+box-shadow:0 0 10px rgba(255,215,0,0.5);
 }
 
 .result-box{

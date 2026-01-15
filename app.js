@@ -12,7 +12,7 @@ window.startGame = function(){
   main.classList.remove("hidden");
 };
 
-// TIMER
+// Countdown
 onValue(timerRef, snap=>{
   localTimer = parseInt(snap.val());
   startCountdown();
@@ -20,16 +20,16 @@ onValue(timerRef, snap=>{
 
 function startCountdown(){
   clearInterval(interval);
-  document.getElementById("timer").innerText = localTimer;
+  timer.innerText = localTimer;
   interval = setInterval(()=>{
     if(localTimer>0){
       localTimer--;
-      document.getElementById("timer").innerText = localTimer;
+      timer.innerText = localTimer;
     }
   },1000);
 }
 
-// GAME DATA
+// Game Data
 onValue(gameRef, snap=>{
   const data = snap.val();
 
@@ -39,7 +39,7 @@ onValue(gameRef, snap=>{
     <tr>
       <td>${t.name}</td>
       <td>${t.players.join(", ")}</td>
-      <td><img src="pirates/p${i+1}.jpg"></td>
+      <td><img src="pirates/p${i+1}.jpg" onerror="this.src='https://i.imgur.com/8Qf7K9N.png'"></td>
     </tr>
     `;
   });
