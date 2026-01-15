@@ -8,29 +8,46 @@
 </head>
 <body>
 
-<h1 class="title">🏴‍☠️ Bounty Pirates Arena</h1>
+<div id="startScreen" class="center screen">
+  <div class="card">
+    <h1>🏴‍☠️ BOUNTY PIRATES</h1>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+</div>
+
+<div id="mainScreen" class="hidden">
+
+<h2 class="title">Bounty Pirates Arena</h2>
 
 <div class="timerBox">
 ⏳ Countdown: <span id="timer">--</span> sec
 </div>
 
+<!-- TEAM TABLE -->
+<h3>Teams & Pirates</h3>
 <table id="teamsTable">
 <thead>
 <tr>
-<th>Team</th>
-<th>Pirates</th>
-<th>Crew Image</th>
+<th>Team Name</th>
+<th>Members</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
 
+<!-- PIRATE IMAGE GRID -->
+<h3>Pirate Crews</h3>
+<div id="pirateGrid" class="grid"></div>
+
+<!-- RESULTS -->
 <div class="resultBox">
-<h2>🏴‍☠️ Results</h2>
-<p><b>Round 1 Qualified:</b> <span id="r1">--</span></p>
-<p><b>Round 2 Qualified:</b> <span id="r2">--</span></p>
-<p><b>Round 3 Qualified:</b> <span id="r3">--</span></p>
+<h3>🏴‍☠️ Results</h3>
+<p><b>Round 1:</b> <span id="r1">--</span></p>
+<p><b>Round 2:</b> <span id="r2">--</span></p>
+<p><b>Round 3:</b> <span id="r3">--</span></p>
 <h2 id="winnerBox"></h2>
+</div>
+
 </div>
 
 <script type="module" src="app.js"></script>

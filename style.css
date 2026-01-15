@@ -14,20 +14,34 @@ text-align:center;
 100%{background-position:0% 50%;}
 }
 
-.title{
-font-size:38px;
-margin-bottom:10px;
-color:gold;
+.screen{min-height:100vh;}
+.center{display:flex;justify-content:center;align-items:center;}
+.hidden{display:none;}
+
+.card{
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:15px;
 }
 
+button{
+padding:12px 30px;
+font-size:18px;
+border-radius:20px;
+border:none;
+cursor:pointer;
+background:gold;
+}
+
+.title{color:gold;}
+
 .timerBox{
-font-size:22px;
 margin:15px;
-padding:10px;
+font-size:22px;
 background:rgba(0,0,0,0.5);
+padding:10px;
 border-radius:10px;
 display:inline-block;
-color:gold;
 }
 
 table{
@@ -35,33 +49,43 @@ width:100%;
 border-collapse:collapse;
 background:white;
 color:black;
-margin-top:20px;
+margin-top:15px;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
 }
 
 th{
 background:#1b3b6f;
 color:white;
-padding:12px;
-border:1px solid black;
 }
 
-td{
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.grid div{
+background:white;
+color:black;
+border-radius:10px;
 padding:10px;
-border:1px solid black;
-text-align:center;
 }
 
-td img{
-width:80px;
+.grid img{
+width:100%;
 border-radius:8px;
-border:1px solid black;
 }
 
 .resultBox{
 margin-top:30px;
-padding:15px;
 background:white;
 color:black;
+padding:20px;
 border-radius:10px;
 width:70%;
 margin-left:auto;
@@ -70,6 +94,6 @@ margin-right:auto;
 
 #winnerBox{
 color:green;
-font-size:26px;
+font-size:28px;
 margin-top:10px;
 }

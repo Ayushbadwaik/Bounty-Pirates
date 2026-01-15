@@ -7,58 +7,62 @@ const timerRef = ref(db, "countdown");
 let localTimer = 0;
 let interval = null;
 
-// Countdown sync
-onValue(timerRef, snap => {
+window.startGame = function(){
+  startScreen.classList.add("hidden");
+  mainScreen.classList.remove("hidden");
+};
+
+// TIMER
+onValue(timerRef, snap=>{
   localTimer = parseInt(snap.val());
-  startTimer();
+  runTimer();
 });
 
-function startTimer(){
+function runTimer(){
   clearInterval(interval);
-  document.getElementById("timer").innerText = localTimer;
+  timer.innerText = localTimer;
 
   interval = setInterval(()=>{
-    if(localTimer > 0){
+    if(localTimer>0){
       localTimer--;
-      document.getElementById("timer").innerText = localTimer;
+      timer.innerText = localTimer;
     }
   },1000);
 }
 
-// Game data
-onValue(gameRef, snap => {
-
+// GAME DATA
+onValue(gameRef, snap=>{
   const data = snap.val();
 
-  // Table
-  let rows = "";
-  data.teams.forEach((t,i)=>{
-    rows += `
+  // TEAM TABLE
+  let rows="";
+  data.teams.forEach(t=>{
+    rows+=`
     <tr>
       <td>${t.name}</td>
       <td>${t.players.join(", ")}</td>
-      <td>
-        <img src="pirates/p${i+1}.jpg"
-             onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/Pirate_flag.svg'">
-      </td>
     </tr>`;
   });
+  teamsTable.querySelector("tbody").innerHTML=rows;
 
-  document.querySelector("#teamsTable tbody").innerHTML = rows;
+  // PIRATE GRID
+  let grid="";
+  data.teams.forEach((t,i)=>{
+    grid+=`
+    <div>
+      <img src="pirates/p${i+1}.jpg"
+           onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/Pirate_flag.svg'">
+      <b>${t.name}</b>
+    </div>`;
+  });
+  pirateGrid.innerHTML=grid;
 
-  // Results
-  document.getElementById("r1").innerText =
-    data.round1.length ? data.round1.join(", ") : "Not declared";
-
-  document.getElementById("r2").innerText =
-    data.round2.length ? data.round2.join(", ") : "Not declared";
-
-  document.getElementById("r3").innerText =
-    data.round3.length ? data.round3.join(", ") : "Not declared";
+  // RESULTS
+  r1.innerText=data.round1.length?data.round1.join(", "):"Not declared";
+  r2.innerText=data.round2.length?data.round2.join(", "):"Not declared";
+  r3.innerText=data.round3.length?data.round3.join(", "):"Not declared";
 
   if(data.winner){
-    document.getElementById("winnerBox").innerText =
-      "🏆 Winner: " + data.winner;
+    winnerBox.innerText="🏆 Winner: "+data.winner;
   }
-
 });
