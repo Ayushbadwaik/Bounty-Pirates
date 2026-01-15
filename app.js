@@ -1,47 +1,43 @@
 import { db } from "./firebase.js";
 import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-const gameRef = ref(db, "game");
-const timerRef = ref(db, "countdown");
+const gameRef = ref(db,"game");
+const timerRef = ref(db,"countdown");
 
-let localTimer = 0;
-let interval = null;
+let localTimer=0;
+let interval=null;
 
-window.startGame = function(){
-  startScreen.classList.add("hidden");
-  mainScreen.classList.remove("hidden");
-};
+window.startGame=function(){
+  intro.classList.add("hidden");
+  main.classList.remove("hidden");
+}
 
 // TIMER
-onValue(timerRef, snap=>{
-  localTimer = parseInt(snap.val());
+onValue(timerRef,snap=>{
+  localTimer=parseInt(snap.val());
   runTimer();
 });
 
 function runTimer(){
   clearInterval(interval);
-  timer.innerText = localTimer;
+  timer.innerText=localTimer;
 
-  interval = setInterval(()=>{
+  interval=setInterval(()=>{
     if(localTimer>0){
       localTimer--;
-      timer.innerText = localTimer;
+      timer.innerText=localTimer;
     }
   },1000);
 }
 
 // GAME DATA
-onValue(gameRef, snap=>{
-  const data = snap.val();
+onValue(gameRef,snap=>{
+  const data=snap.val();
 
   // TEAM TABLE
   let rows="";
   data.teams.forEach(t=>{
-    rows+=`
-    <tr>
-      <td>${t.name}</td>
-      <td>${t.players.join(", ")}</td>
-    </tr>`;
+    rows+=`<tr><td>${t.name}</td><td>${t.players.join(", ")}</td></tr>`;
   });
   teamsTable.querySelector("tbody").innerHTML=rows;
 
