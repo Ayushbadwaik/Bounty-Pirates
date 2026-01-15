@@ -1,6 +1,6 @@
 body{
 margin:0;
-font-family: "Trebuchet MS", Arial;
+font-family:Trebuchet MS, Arial;
 background:linear-gradient(270deg,#020824,#021a3d,#020824);
 background-size:600% 600%;
 animation:bg 20s ease infinite;
@@ -55,37 +55,57 @@ border-collapse:collapse;
 background:white;
 color:black;
 margin-top:20px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 th{
-background:#1b3b6f;
-color:white;
-padding:12px;
+background:linear-gradient(45deg,#d4af37,#ffcc33);
+color:black;
+padding:14px;
 border:1px solid black;
+font-size:18px;
 }
 
 td{
-padding:10px;
+padding:12px;
 border:1px solid black;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
+gap:20px;
 padding:20px;
 }
 
 .grid div{
-background:white;
-color:black;
-border-radius:10px;
-padding:10px;
+background:linear-gradient(180deg,#1b3b6f,#0b1d3a);
+color:white;
+border-radius:15px;
+padding:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:0.3s;
+}
+
+.grid div:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px gold;
 }
 
 .grid img{
 width:100%;
-border-radius:8px;
+border-radius:10px;
+border:2px solid gold;
+margin-bottom:8px;
+}
+
+.grid .teamName{
+font-size:16px;
+font-weight:bold;
+color:gold;
+text-shadow:0 0 5px black;
 }
 
 .results{
