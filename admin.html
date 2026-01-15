@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pirate Admin Panel</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="center">
 
-<h1>🏴‍☠️ Pirate Admin Dashboard</h1>
+<div class="card admin-card">
+
+<h2>🏴‍☠️ Pirate Control Dashboard</h2>
+
 <div id="loginBox">
-<input id="pass" type="password" placeholder="Enter Admin Password">
-<button onclick="login()">Login</button>
+  <input id="pass" type="password" placeholder="Enter Admin Password">
+  <br><br>
+  <button class="btn primary" onclick="login()">Login</button>
 </div>
 
 <div id="panel" class="hidden">
-<textarea id="json" rows="18" cols="80"></textarea><br><br>
-<input id="timerInput" placeholder="Countdown seconds"><br><br>
-<button onclick="saveAll()">Update Live</button>
+
+<h4>Game Data (JSON)</h4>
+<textarea id="json" rows="14"></textarea>
+
+<h4>Countdown Timer (seconds)</h4>
+<input id="timerInput" placeholder="Eg: 60">
+
+<br><br>
+<button class="btn primary" onclick="saveAll()">Update Live Website</button>
+
+</div>
+
 </div>
 
 <script type="module" src="admin.js"></script>
