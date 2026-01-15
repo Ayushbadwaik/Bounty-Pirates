@@ -27,13 +27,15 @@
   <h3>Teams & Pirates</h3>
   <table id="teamsTable">
     <thead>
-      <tr>
-        <th>Team Name</th>
-        <th>Pirates</th>
-      </tr>
+      <tr><th>Team</th><th>Pirates</th></tr>
     </thead>
     <tbody></tbody>
   </table>
+</section>
+
+<section class="glass">
+  <h3>Pirate Crews</h3>
+  <div id="pirateImages" class="pirate-grid"></div>
 </section>
 
 <section class="glass tabs">
@@ -42,7 +44,6 @@
     <button onclick="showTab('r2')">Round 2</button>
     <button onclick="showTab('r3')">Round 3</button>
   </div>
-
   <div id="r1" class="tab"></div>
   <div id="r2" class="tab hidden"></div>
   <div id="r3" class="tab hidden"></div>
@@ -59,7 +60,6 @@
 </div>
 
 <audio id="winSound" src="win.mp3"></audio>
-
 <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -1,35 +1,65 @@
-import { db } from './firebase.js'
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { db } from "./firebase.js";
+import { ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const gameRef = ref(db, "game");
 const timerRef = ref(db, "countdown");
 
-window.startGame=function(){
-document.getElementById("intro").classList.add("hidden");
-document.getElementById("main").classList.remove("hidden");
-}
+let localTimer = 0;
+let interval = null;
 
+window.startGame = function(){
+  intro.classList.add("hidden");
+  main.classList.remove("hidden");
+};
+
+window.showTab = function(id){
+  ["r1","r2","r3"].forEach(t=>document.getElementById(t).classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+};
+
+// TIMER LOGIC (FIXED)
 onValue(timerRef, snap=>{
-document.getElementById("timer").innerText = snap.val();
+  localTimer = parseInt(snap.val());
+  updateTimer();
 });
 
-onValue(gameRef, snap=>{
-const data = snap.val();
-
-let html="";
-data.teams.forEach(t=>{
-html+=`<div><h3>${t.name}</h3><p>${t.players.join(", ")}</p></div>`;
-});
-document.getElementById("teams").innerHTML=html;
-
-document.getElementById("rounds").innerHTML=`
-<h2>Round 1</h2><p>${data.round1.join(", ")}</p>
-<h2>Round 2</h2><p>${data.round2.join(", ")}</p>
-<h2>Round 3</h2><p>${data.round3.join(", ")}</p>
-`;
-
-if(data.winner){
-document.getElementById("winnerBox").innerHTML = "🏆 Winner: "+data.winner;
-document.getElementById("winSound").play();
+function updateTimer(){
+  clearInterval(interval);
+  document.getElementById("timer").innerText = localTimer;
+  interval = setInterval(()=>{
+    if(localTimer>0){
+      localTimer--;
+      document.getElementById("timer").innerText = localTimer;
+    }
+  },1000);
 }
+
+// GAME DATA
+onValue(gameRef, snap=>{
+  const data = snap.val();
+
+  // Teams table
+  let rows="";
+  data.teams.forEach(t=>{
+    rows+=`<tr><td>${t.name}</td><td>${t.players.join(", ")}</td></tr>`;
+  });
+  document.querySelector("#teamsTable tbody").innerHTML = rows;
+
+  // Pirate images auto assign
+  let imgHtml="";
+  data.teams.forEach((t,i)=>{
+    imgHtml+=`<div><img src="https://i.imgur.com/8Qf7K9N.png"><p>${t.name}</p></div>`;
+  });
+  pirateImages.innerHTML=imgHtml;
+
+  // Rounds
+  r1.innerText=data.round1.join(", ")||"No teams yet";
+  r2.innerText=data.round2.join(", ")||"No teams yet";
+  r3.innerText=data.round3.join(", ")||"No teams yet";
+
+  // Winner
+  if(data.winner){
+    winnerBox.innerText="🏆 Winner: "+data.winner;
+    winSound.play();
+  }
 });
