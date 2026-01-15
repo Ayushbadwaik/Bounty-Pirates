@@ -1,6 +1,5 @@
 {
-  "adminPassword": "pirate123",
-  "countdown": 120,
+  "countdown": 60,
   "game": {
     "teams": [
       {"name":"Black Pearl","players":["A","B","C","D"]},
