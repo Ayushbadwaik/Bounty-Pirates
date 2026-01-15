@@ -1,0 +1,154 @@
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:linear-gradient(180deg,#021024,#032859);
+color:white;
+}
+
+.screen{min-height:100vh;}
+.center{display:flex;justify-content:center;align-items:center;}
+.hidden{display:none;}
+
+.title{
+font-size:48px;
+letter-spacing:3px;
+animation:glow 2s infinite alternate;
+}
+
+.subtitle{opacity:0.8;margin-bottom:20px;}
+
+@keyframes glow{
+from{text-shadow:0 0 10px gold;}
+to{text-shadow:0 0 30px orange;}
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(0.9);}
+to{opacity:1;transform:scale(1);}
+}
+
+.btn{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.primary{
+background:linear-gradient(45deg,#d4af37,#ffcc33);
+color:black;
+font-weight:bold;
+}
+
+.primary:hover{transform:scale(1.05);}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+padding:15px 25px;
+background:rgba(0,0,0,0.6);
+}
+
+.timer-box{
+font-size:20px;
+font-weight:bold;
+color:gold;
+}
+
+.glass{
+margin:20px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+th{color:gold;}
+
+.tabs .tab-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
+}
+
+.tabs button{
+background:#1b3b6f;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.tabs button:hover{background:#265a9a;}
+
+.tab{
+text-align:center;
+font-size:18px;
+animation:fadeIn 0.5s ease;
+}
+
+.winner{
+text-align:center;
+font-size:30px;
+color:gold;
+animation:celebrate 1s infinite alternate;
+}
+
+@keyframes celebrate{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+
+footer{
+text-align:center;
+padding:15px;
+opacity:0.8;
+}
+
+.admin-card{
+width:90%;
+max-width:900px;
+}
+
+textarea,input{
+width:100%;
+padding:10px;
+border-radius:8px;
+border:none;
+margin-top:5px;
+}
+
+@media(max-width:768px){
+.title{font-size:32px;}
+table{font-size:14px;}
+}

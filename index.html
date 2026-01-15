@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bounty Pirates Arena</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="intro" class="screen center">
+  <div class="card">
+    <h1 class="title">🏴‍☠️ BOUNTY PIRATES</h1>
+    <p class="subtitle">The Hunt for Glory Begins</p>
+    <button class="btn primary" onclick="startGame()">Start Voyage</button>
+  </div>
+</div>
+
+<div id="main" class="screen hidden">
+
+<header class="topbar">
+  <h2>Bounty Pirates Live Arena</h2>
+  <div class="timer-box">⏳ <span id="timer">--</span></div>
+</header>
+
+<section class="glass">
+  <h3>Teams & Pirates</h3>
+  <table id="teamsTable">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+        <th>Pirates</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<section class="glass tabs">
+  <div class="tab-buttons">
+    <button onclick="showTab('r1')">Round 1</button>
+    <button onclick="showTab('r2')">Round 2</button>
+    <button onclick="showTab('r3')">Round 3</button>
+  </div>
+
+  <div id="r1" class="tab"></div>
+  <div id="r2" class="tab hidden"></div>
+  <div id="r3" class="tab hidden"></div>
+</section>
+
+<section class="winner glass">
+  <h2 id="winnerBox"></h2>
+</section>
+
+<footer>
+<p>Queries & Complaints: <b>Mr. Ayush Badwaik</b> | 8208832911</p>
+</footer>
+
+</div>
+
+<audio id="winSound" src="win.mp3"></audio>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
