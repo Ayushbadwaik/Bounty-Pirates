@@ -41,14 +41,14 @@ onValue(gameRef,snap=>{
   });
   teamsTable.querySelector("tbody").innerHTML=rows;
 
-  // PIRATE GRID
+  // PIRATE GRID WITH TEAM NAME BELOW IMAGE
   let grid="";
   data.teams.forEach((t,i)=>{
     grid+=`
     <div>
       <img src="pirates/p${i+1}.jpg"
            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5a/Pirate_flag.svg'">
-      <b>${t.name}</b>
+      <div class="teamName">${t.name}</div>
     </div>`;
   });
   pirateGrid.innerHTML=grid;
