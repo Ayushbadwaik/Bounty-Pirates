@@ -1,15 +1,27 @@
 body{
 margin:0;
 font-family:Segoe UI;
-background:linear-gradient(180deg,#021024,#032859);
+background:linear-gradient(270deg,#021024,#032859,#021024);
+background-size:600% 600%;
+animation:bgmove 20s ease infinite;
 color:white;
+}
+
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .screen{min-height:100vh;}
 .center{display:flex;justify-content:center;align-items:center;}
 .hidden{display:none;}
 
-.title{font-size:48px;animation:glow 2s infinite alternate;}
+.title{
+font-size:48px;
+animation:glow 2s infinite alternate;
+}
+
 @keyframes glow{
 from{text-shadow:0 0 10px gold;}
 to{text-shadow:0 0 30px orange;}
@@ -53,44 +65,42 @@ width:100%;
 border-collapse:collapse;
 }
 
-th,td{
+th{
+background:rgba(255,215,0,0.2);
+color:gold;
 padding:12px;
+}
+
+td{
+padding:10px;
 border-bottom:1px solid rgba(255,255,255,0.2);
+text-align:center;
 }
 
-th{color:gold;}
-
-.tabs button{
-margin:5px;
-padding:10px 20px;
-border-radius:20px;
-background:#1b3b6f;
-color:white;
-border:none;
-}
-
-.pirate-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:15px;
-}
-
-.pirate-grid img{
-width:100%;
-border-radius:15px;
+td img{
+width:70px;
+border-radius:10px;
 border:2px solid gold;
 }
 
-.winner{
+.result-box{
 text-align:center;
-font-size:30px;
+font-size:18px;
+}
+
+#winnerBox{
+font-size:32px;
 color:gold;
 animation:celebrate 1s infinite alternate;
 }
 
 @keyframes celebrate{
 from{transform:scale(1);}
-to{transform:scale(1.1);}
+to{transform:scale(1.15);}
 }
 
-footer{text-align:center;padding:15px;}
+footer{
+text-align:center;
+padding:15px;
+opacity:0.8;
+}
