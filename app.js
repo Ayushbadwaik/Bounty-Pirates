@@ -1,5 +1,5 @@
 import { db } from "./firebase.js";
-import { ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const gameRef = ref(db, "game");
 const timerRef = ref(db, "countdown");
@@ -12,18 +12,13 @@ window.startGame = function(){
   main.classList.remove("hidden");
 };
 
-window.showTab = function(id){
-  ["r1","r2","r3"].forEach(t=>document.getElementById(t).classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-};
-
-// TIMER LOGIC (FIXED)
+// TIMER
 onValue(timerRef, snap=>{
   localTimer = parseInt(snap.val());
-  updateTimer();
+  startCountdown();
 });
 
-function updateTimer(){
+function startCountdown(){
   clearInterval(interval);
   document.getElementById("timer").innerText = localTimer;
   interval = setInterval(()=>{
@@ -38,28 +33,24 @@ function updateTimer(){
 onValue(gameRef, snap=>{
   const data = snap.val();
 
-  // Teams table
   let rows="";
-  data.teams.forEach(t=>{
-    rows+=`<tr><td>${t.name}</td><td>${t.players.join(", ")}</td></tr>`;
+  data.teams.forEach((t,i)=>{
+    rows+=`
+    <tr>
+      <td>${t.name}</td>
+      <td>${t.players.join(", ")}</td>
+      <td><img src="pirates/p${i+1}.jpg"></td>
+    </tr>
+    `;
   });
   document.querySelector("#teamsTable tbody").innerHTML = rows;
 
-  // Pirate images auto assign
-  let imgHtml="";
-  data.teams.forEach((t,i)=>{
-    imgHtml+=`<div><img src="https://i.imgur.com/8Qf7K9N.png"><p>${t.name}</p></div>`;
-  });
-  pirateImages.innerHTML=imgHtml;
+  r1.innerText = data.round1.join(", ") || "Not declared";
+  r2.innerText = data.round2.join(", ") || "Not declared";
+  r3.innerText = data.round3.join(", ") || "Not declared";
 
-  // Rounds
-  r1.innerText=data.round1.join(", ")||"No teams yet";
-  r2.innerText=data.round2.join(", ")||"No teams yet";
-  r3.innerText=data.round3.join(", ")||"No teams yet";
-
-  // Winner
   if(data.winner){
-    winnerBox.innerText="🏆 Winner: "+data.winner;
+    winnerBox.innerText = "🏆 Winner: " + data.winner;
     winSound.play();
   }
 });
